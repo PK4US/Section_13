@@ -1,0 +1,13 @@
+include ':MyApp_6'
+include ':MyApp_5'
+include ':MyApp_4'
+include ':MyApp_3'
+include ':MyApp_2'
+include ':MyApp_1'
+include ':Lesson_6'
+include ':Lesson_5'
+include ':Lesson_4'
+include ':Lesson_3'
+include ':Lesson_2'
+include ':Lesson_1'
+rootProject.name = "Section_13"
