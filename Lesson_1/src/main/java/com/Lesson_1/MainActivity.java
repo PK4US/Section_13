@@ -1,8 +1,14 @@
 package com.Lesson_1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +16,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
+
+    public void call(View view) {
+        callPhone();
+    }
+
+    private void callPhone() {
+        EditText phone = findViewById(R.id.phone);
+        String call = "tel:" + phone.getText().toString();
+        //startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse(call)));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+            return;
+        }
+        startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(call)));
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) callPhone();
+            else System.out.println("Пользователь не разрешил совершать звонки из приложения!");
+        }
+    }
+
 }
