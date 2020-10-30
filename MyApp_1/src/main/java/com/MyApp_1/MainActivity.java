@@ -2,7 +2,6 @@ package com.MyApp_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,16 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> arrayNumberPhone;
     private ArrayAdapter<String> adapter;
-    public String call = "tel:";
+    public String call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +26,26 @@ public class MainActivity extends AppCompatActivity {
 
         arrayNumberPhone = new ArrayList();
         arrayNumberPhone.add("+380986774420");
-        arrayNumberPhone.add("+380637868341");
-        arrayNumberPhone.add("+380984341464");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
+        arrayNumberPhone.add("+380986774420");
 
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,arrayNumberPhone);
 
@@ -40,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                call += adapter.getItem(position);
+                call = "tel:"+adapter.getItem(position);
                 callPhone();
             }
         });
