@@ -1,7 +1,7 @@
+include ':MyApp_3'
 include ':MyApp_6'
 include ':MyApp_5'
 include ':MyApp_4'
-include ':MyApp_3'
 include ':MyApp_2'
 include ':MyApp_1'
 include ':Lesson_6'
