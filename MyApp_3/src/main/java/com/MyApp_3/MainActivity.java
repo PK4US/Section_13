@@ -29,16 +29,18 @@ public class MainActivity extends AppCompatActivity {
         if (cursor.moveToFirst()) {
             do {
                 ArrayList<Message> messages = new ArrayList<>();
-//                messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
                 ListView lv = findViewById(R.id.lv);
                 MessageAdapter adapter = new MessageAdapter(this, R.layout.item, messages);
                 lv.setAdapter(adapter);
 
-                for (int i = 0; i < cursor.getColumnCount(); i++) {
-                    System.out.println(cursor.getColumnName(i) + ": " + cursor.getString(i));
-                    messages.add(new Message(cursor.getColumnIndex("address") + cursor.getString(i),cursor.getString(i),cursor.getString(i)));
-                    //messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
-                }
+                messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
+                messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
+                messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
+
+//                for (int i = 0; i < cursor.getColumnCount(); i++) {
+//                    System.out.println(cursor.getColumnName(i) + ": " + cursor.getString(i));
+//                    messages.add(new Message(cursor.getString(cursor.getColumnIndex("address")), cursor.getString(cursor.getColumnIndex("body")),cursor.getString(cursor.getColumnIndex("date"))));
+//                }
             } while (cursor.moveToNext());
         }
         else {
