@@ -3,7 +3,6 @@ package com.MyApp_5;
 public class Contacts {
 
     private String nameContact,numberPhone;
-
     public Contacts(String nameContact, String numberPhone) {
         this.nameContact = nameContact;
         this.numberPhone = numberPhone;

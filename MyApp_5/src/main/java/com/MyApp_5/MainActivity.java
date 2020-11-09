@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_CONTACTS}, 2);
             return;
         }
+
         String name = "Алексей";
         String phone = "1234567890";
 
